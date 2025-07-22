@@ -1,0 +1,76 @@
+**********send registration OTP**********
+POST /api/users/registerOTP
+Request body:
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "mobileNumber": "+1234567890",
+  "accountType": "personal",
+  "photo": "base64encodedphotodata",
+  "photoId": "passport",
+  "drivingLicence": "ABC123456",
+  "vehicleNumber": "XYZ9876"
+}
+
+
+***********************************************************
+
+
+**********verify register OTP**********
+POST /api/users/register
+Request body : 
+{
+  "email": "johndoe@example.com",
+  "otp": 123456
+}
+
+
+***********************************************************
+
+
+**********send login otp**********
+POST /api/users/loginOTP
+Request body :
+{
+  "email": "johndoe@example.com"
+}
+
+
+***********************************************************
+
+
+**********verify login OTP**********
+POST /api/users/login
+{
+  "email": "johndoe@example.com",
+  "otp": 123456
+}
+
+response
+{
+  "message": "User logged in successfully",
+  "token": "jwt_token_string",
+  "success": true
+}
+
+
+***********************************************************
+
+
+**********get user details from jwt token**********
+GET /api/users/getUser
+
+send jwt token in header -> authorization : bearer jwt_token_string
+
+response
+{
+  "user": {
+      user object is returned
+  },
+  "message": "User details sent successfully",
+  "success": true
+}
+
+
+***********************************************************
+

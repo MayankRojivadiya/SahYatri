@@ -1,0 +1,9 @@
+*{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.text-gradient {
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(180deg, #dd6419, #bbf1f3);
+  }
