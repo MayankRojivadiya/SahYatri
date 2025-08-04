@@ -18,7 +18,16 @@ const rideRequestSchema = new Schema({
      travelTime: {
           type: String,
           required: true,
-     }
+     },
+     status: {
+          type: String,
+          enum: ["pending", "accepted", "completed"],
+          default: "pending"
+     },
+     driverId: {
+          type: mongoose.Types.ObjectId,
+          ref: "User",
+     },
 }, { timestamps: true });
 
 const RideRequest = mongoose.model('RideRequest', rideRequestSchema);

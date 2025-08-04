@@ -12,4 +12,5 @@ export const rides = {
   CREATE_RIDE: BASE_URL + "/api/ride-requests",
   USER_RIDES: BASE_URL + "/api/ride-requests/",
   GET_ALL_REQUESTS: BASE_URL + "/api/ride-requests/all-ride-requests",
+  ACCEPT_RIDE_REQUEST: BASE_URL + "/api/ride-requests/accept", 
 };

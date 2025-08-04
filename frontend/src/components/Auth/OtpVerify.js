@@ -18,7 +18,7 @@ const OtpVerify = () => {
   //     navigate("/signup");
   //   }
   // }, []);
-
+  
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -48,7 +48,7 @@ const OtpVerify = () => {
       <div className="text-xl md:text-2xl p-2 md:p-0">
         <h1>What’s the code ?</h1>
         <p>
-          Enter the 6-digit code we just sent to +91{" "}
+          Enter the 6-digit code we just sent to {" "}
           {isLogin ? logUserNumber : userData?.mobileNumber}{" "}
         </p>
       </div>

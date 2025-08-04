@@ -19,7 +19,6 @@ router.post('/login', userController.login);
 router.get('/getUser', authenticate ,userController.getUser);
 
 /*
-
 // Get User by ID
 router.get('/:userId', userController.getUserById);
 
@@ -29,4 +28,5 @@ router.put('/:userId', userController.updateUser);
 // Delete User
 router.delete('/:userId', userController.deleteUser);
 */
+
 module.exports = router;

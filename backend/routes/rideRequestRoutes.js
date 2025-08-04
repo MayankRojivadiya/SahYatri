@@ -11,6 +11,9 @@ router.get('/all-ride-requests',rideRequestController.getRideRequests);
 // Get ride request details by request ID
 router.get('/:requestId', rideRequestController.getRideRequestById);
 
+// Accept a ride request
+router.put('/accept/:requestId', rideRequestController.acceptRideRequest);
+
 // Update ride request details
 router.put('/:requestId', rideRequestController.updateRideRequest);
 

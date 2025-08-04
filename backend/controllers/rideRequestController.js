@@ -9,8 +9,8 @@ const rideRequestController = {
       const newRideRequest = new RideRequest(req.body);
       await newRideRequest.save();
       res.status(201).json({
-        success:true,
-        message:"Ride Request created successfully",
+        success: true,
+        message: "Ride Request created successfully",
         newRideRequest,
       });
     } catch (error) {
@@ -28,8 +28,8 @@ const rideRequestController = {
       res.json({
         rideRequests,
         totalRideRequests,
-        success:true,
-        message:"Ride Requests Fetch Successfully",
+        success: true,
+        message: "Ride Requests Fetch Successfully",
       });
     } catch (error) {
       console.error(error);
@@ -42,19 +42,48 @@ const rideRequestController = {
     const { requestId } = req.params;
     try {
       // const objectIdRideRequestId = new ObjectId(requestId);
-      const rideRequest = await RideRequest.find({userId:requestId});
+      const rideRequest = await RideRequest.find({ userId: requestId });
       if (!rideRequest) {
         return res.status(404).json({ error: 'Ride request not found' });
       }
       res.json({
-        success:true,
-        message:"ride reqest fetched successfully",
-        rideRequest});
+        success: true,
+        message: "ride reqest fetched successfully",
+        rideRequest
+      });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Failed to fetch ride request' });
     }
   },
+
+  // Accept a ride request
+  async acceptRideRequest(req, res) {
+    const { requestId } = req.params;
+    const { driverId } = req.body;
+
+    try {
+      const updatedRequest = await RideRequest.findByIdAndUpdate(
+        requestId,
+        { status: "accepted", driverId },
+        { new: true }
+      );
+
+      if (!updatedRequest) {
+        return res.status(404).json({ error: "Ride request not found" });
+      }
+
+      res.status(200).json({
+        success: true,
+        message: "Ride request accepted",
+        updatedRequest,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Failed to accept ride request" });
+    }
+  },
+
 
   // Update a ride request
   async updateRideRequest(req, res) {
